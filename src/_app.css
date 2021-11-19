@@ -5,7 +5,7 @@
   --color-secondary: #eb5757;
   --color-gray-100: #bdbdbd;
   --color-gray-200: #828282;
-  --color-black: #000;
+  --color-black: #333;
 
   --font-primary: "Montserrat", sans-serif;
   --font-secondary: "Raleway", sans-serif;
@@ -16,4 +16,18 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
+}
+
+h1 {
+  color: var(--color-black);
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  text-align: center;
+  margin: 50px 0;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0px 20px;
 }

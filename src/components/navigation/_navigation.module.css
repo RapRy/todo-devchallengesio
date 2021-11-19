@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+  border-bottom: 1px solid var(--color-gray-100);
+  padding: 20px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.item {
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-black);
+  cursor: pointer;
+}
+
+.indicator {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 90px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 5px;
+  transition: left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
