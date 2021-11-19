@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import "./_app.css";
 import Navigation from "./components/navigation/Navigation";
-import SearchBox from "./components/search/SearchBox";
+import Form from "./components/form/Form";
+import Todo from "./components/todo/Todo";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const todosLS = localStorage.getItem("todo");
@@ -19,8 +21,16 @@ const App = () => {
     <div>
       <h1>#todo</h1>
       <main>
-        <Navigation setTodos={setTodos} />
-        <SearchBox todos={todos} setTodos={setTodos} />
+        <Navigation
+          setTodos={setTodos}
+          setShowForm={setShowForm}
+          showForm={showForm}
+        />
+        {!showForm && <Form todos={todos} setTodos={setTodos} />}
+        {todos &&
+          todos.map((todo) => (
+            <Todo key={todo.id} todo={todo} showForm={showForm} />
+          ))}
       </main>
     </div>
   );

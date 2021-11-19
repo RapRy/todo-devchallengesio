@@ -4,7 +4,7 @@ import styles from "./_navigation.module.css";
 
 const items = ["All", "Active", "Completed"];
 
-const Navigation = ({ setTodos }) => {
+const Navigation = ({ setTodos, setShowForm, showForm }) => {
   const indicatorRef = useRef();
   const containerRef = useRef();
   const [translate, setTranslate] = useState(0);
@@ -18,23 +18,26 @@ const Navigation = ({ setTodos }) => {
   };
 
   const filterTodos = (type) => {
-    const todosLS = JSON.parse(localStorage.getItem("todo"));
-
-    if (todosLS.length === 0) {
+    if (localStorage.getItem("todo") === null) {
       return;
     }
+
+    const todosLS = JSON.parse(localStorage.getItem("todo"));
 
     switch (type) {
       case "All":
         setTodos(todosLS);
+        if (showForm) setShowForm((prev) => !prev);
         break;
       case "Active":
         const actives = todosLS.filter((todo) => todo.status === 1);
         setTodos(actives);
+        if (showForm) setShowForm((prev) => !prev);
         break;
       case "Completed":
         const completed = todosLS.filter((todo) => todo.status === 0);
         setTodos(completed);
+        setShowForm((prev) => !prev);
         break;
       default:
         return;

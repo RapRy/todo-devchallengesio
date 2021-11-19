@@ -1,8 +1,8 @@
 import React from "react";
 
-import styles from "./_searchBox.module.css";
+import styles from "./_form.module.css";
 
-const SearchBox = ({ setTodos, todos }) => {
+const Form = ({ setTodos, todos }) => {
   const submitForm = (e) => {
     e.preventDefault();
 
@@ -18,6 +18,9 @@ const SearchBox = ({ setTodos, todos }) => {
 
       setTodos((prev) => [{ id, value: inputValue, status: 1 }, ...prev]);
 
+      // set empty value in input
+      e.target.children[0].children[0].value = "";
+
       return;
     }
     // has key in localstorage
@@ -29,6 +32,9 @@ const SearchBox = ({ setTodos, todos }) => {
       );
 
       setTodos((prev) => [{ id, value: inputValue, status: 1 }, ...prev]);
+
+      // set empty value in input
+      e.target.children[0].children[0].value = "";
     }
   };
 
@@ -42,4 +48,4 @@ const SearchBox = ({ setTodos, todos }) => {
   );
 };
 
-export default SearchBox;
+export default Form;
