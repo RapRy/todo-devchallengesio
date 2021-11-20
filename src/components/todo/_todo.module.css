@@ -32,11 +32,13 @@
   padding: 1px;
   text-align: center;
   color: transparent;
+  opacity: 0;
 }
 
 .container label:first-of-type input:checked ~ span {
   background-color: var(--color-primary);
   color: #fff;
+  opacity: 1;
 }
 
 .container label:last-of-type {
@@ -48,10 +50,14 @@
   flex-grow: 1;
 }
 
-.container span:last-child {
+.container > span:last-child {
   font-size: 20px;
   color: var(--color-gray-200);
   cursor: pointer;
+}
+
+.container > span:last-child:hover {
+  color: var(--color-secondary);
 }
 
 [data-isdone="true"] {

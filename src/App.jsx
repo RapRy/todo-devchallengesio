@@ -4,6 +4,7 @@ import "./_app.css";
 import Navigation from "./components/navigation/Navigation";
 import Form from "./components/form/Form";
 import Todo from "./components/todo/Todo";
+import Button from "./components/button/Button";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -29,9 +30,19 @@ const App = () => {
         {!showForm && <Form todos={todos} setTodos={setTodos} />}
         {todos &&
           todos.map((todo) => (
-            <Todo key={todo.id} todo={todo} showForm={showForm} />
+            <Todo
+              key={todo.id}
+              todo={todo}
+              showForm={showForm}
+              setTodos={setTodos}
+              todos={todos}
+            />
           ))}
+        {showForm && <Button setTodos={setTodos} todos={todos} />}
       </main>
+      <p className="footer-text">
+        created by <span>Ryan</span> - decChallenges.io
+      </p>
     </div>
   );
 };

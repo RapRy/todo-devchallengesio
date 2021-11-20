@@ -4,7 +4,7 @@
   flex-flow: row nowrap;
   gap: 10px;
   align-items: center;
-  margin: 20px 0 30px;
+  margin-bottom: 30px;
 }
 
 .form label {
@@ -40,4 +40,5 @@
   font-family: var(--font-primary);
   font-weight: 600;
   color: #fff;
+  cursor: pointer;
 }
