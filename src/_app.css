@@ -33,6 +33,7 @@ main {
 }
 
 .footer-text {
+  clear: right;
   color: #bdbdbd;
   text-align: center;
   font-size: 13px;
